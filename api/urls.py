@@ -8,7 +8,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.documentation import include_docs_urls
 from users import views as users
 
-schema_view = get_schema_view(title='Django Rest API')
+schema_view = get_schema_view(title=settings.API_TITLE, description=settings.API_DESCRIPTION)
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'users', users.UserViewSet)

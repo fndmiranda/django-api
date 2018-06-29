@@ -20,19 +20,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k*44)smhkr39z-@@x_w*%9^6e!$nzp-bzl7f5jurfle5#+87(n'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'k*44)smhkr39z-@@x_w*%9^6e!$nzp-bzl7f5jurfle5#+87(n')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', 'localhost')]
 
 
 # API Detail
 
-API_TITLE = 'Django Rest API'
+API_TITLE = os.environ.get('API_TITLE', 'Django Rest API')
 
-API_DESCRIPTION = 'The Django Rest API skeleton'
+API_DESCRIPTION = os.environ.get('API_DESCRIPTION', 'The Django Rest API skeleton application')
 
 
 # Application definition
@@ -86,8 +86,8 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.environ.get('DATABASE_DEFAULT_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('DATABASE_DEFAULT_NAME', os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
 
@@ -135,8 +135,7 @@ STATIC_URL = '/static/'
 # http://www.django-rest-framework.org
 
 OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to groups'}
 }
 
 REST_FRAMEWORK = {
