@@ -27,6 +27,8 @@ DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['localhost'])
 
+AUTH_USER_MODEL = 'auth.User'
+
 
 # API Detail
 
