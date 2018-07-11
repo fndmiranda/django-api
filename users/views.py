@@ -1,7 +1,8 @@
 from rest_framework import viewsets
 from users.serializers import UserSerializer, GroupSerializer
 from rest_framework import permissions
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
 from oauth2_provider.contrib.rest_framework import IsAuthenticatedOrTokenHasScope
 
 
@@ -25,16 +26,19 @@ class UserViewSet(viewsets.ModelViewSet):
     delete:
     Delete a user instance.
     """
-    queryset = User.objects.all()
+    queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticatedOrTokenHasScope, permissions.DjangoModelPermissions,)
     required_scopes = ['read']
+
+    # def perform_create(self, serializer):
+    #     serializer.save(password=self.request.user)
 
     def get_permissions(self):
         """
         Instantiates and returns the list of permissions that this view requires.
         """
-        if self.action in ['list', 'retrieve']:
+        if self.action in ['create', 'list', 'retrieve']:
             permission_classes = [permissions.AllowAny]
         else:
             permission_classes = [permissions.IsAuthenticated]

@@ -1,4 +1,4 @@
-Django==2.0.6
+Django==2.0.7
 djangorestframework==3.8.2
 django-oauth-toolkit==1.2.0
 coreapi==2.3.3
