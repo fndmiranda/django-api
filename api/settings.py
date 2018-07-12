@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
+from django.contrib import admin
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,11 +32,15 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['localhost'])
 AUTH_USER_MODEL = 'users.User'
 
 
-# API Detail
+# API detail
 
 API_TITLE = os.environ.get('API_TITLE', 'Django Rest API')
 
 API_DESCRIPTION = os.environ.get('API_DESCRIPTION', 'The Django Rest API skeleton application')
+
+
+# Admin
+admin.site.site_header = API_TITLE
 
 
 # Application definition
