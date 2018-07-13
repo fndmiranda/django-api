@@ -4,15 +4,22 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls import include
 from rest_framework.schemas import get_schema_view
+from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
 from rest_framework.routers import DefaultRouter
 from rest_framework.documentation import include_docs_urls
+from accounts import views as accounts
 from users import views as users
 
-schema_view = get_schema_view(title=settings.API_TITLE, description=settings.API_DESCRIPTION)
+schema_view = get_schema_view(
+    title=settings.API_TITLE,
+    description=settings.API_DESCRIPTION,
+    renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer]
+)
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'users', users.UserViewSet)
 router.register(r'groups', users.GroupViewSet)
+router.register(r'accounts', accounts.AccountViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

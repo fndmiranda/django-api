@@ -38,9 +38,16 @@ API_TITLE = os.environ.get('API_TITLE', 'Django Rest API')
 
 API_DESCRIPTION = os.environ.get('API_DESCRIPTION', 'The Django Rest API skeleton application')
 
+# API password reset token expiry time in hours
+API_PASSWORD_RESET_TOKEN_EXPIRY = os.environ.get('API_PASSWORD_RESET_TOKEN_EXPIRY', 24)
+
+# Base URL from default web front (default: localhost:3000)
+WEB_URL = os.environ.get('WEB_URL', 'localhost:3000')
+
 
 # Admin
 admin.site.site_header = API_TITLE
+admin.site.site_title = API_DESCRIPTION
 
 
 # Application definition
@@ -56,10 +63,12 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'rest_framework_swagger',
     'oauth2_provider',
 ]
 
 LOCAL_APPS = [
+    'accounts',
     'users',
 ]
 
@@ -145,6 +154,8 @@ LANGUAGES = [
     ('pt-br', _('Portuguese')),
     ('es', _('Spanish')),
 ]
+
+LANGUAGE_DEFAULT = 'en'
 
 
 # Static files (CSS, JavaScript, Images)

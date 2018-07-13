@@ -5,8 +5,11 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
-from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from django.utils.functional import lazy
+from django.utils.safestring import mark_safe
+
+mark_safe_lazy = lazy(mark_safe, str)
 
 
 class UserManager(BaseUserManager):
@@ -45,10 +48,10 @@ class User(AbstractBaseUser):
     password = models.CharField(max_length=128, blank=False)
     language = models.CharField(
         max_length=5,
-        verbose_name=_("language"),
+        verbose_name=_('language'),
         blank=False,
         choices=settings.LANGUAGES,
-        default='en-us',
+        default=settings.LANGUAGE_DEFAULT,
     )
     is_superuser = models.BooleanField(
         default=False,
@@ -68,6 +71,7 @@ class User(AbstractBaseUser):
     )
     last_login = models.DateTimeField(auto_now_add=True)
     date_joined = models.DateTimeField(default=timezone.now)
+    updated = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
 
@@ -110,9 +114,3 @@ class User(AbstractBaseUser):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
-
-    # @property
-    # def is_staff(self):
-    #     "Is the user a member of staff?"
-    #     # Simplest possible answer: All admins are staff
-    #     return self.is_superuser
