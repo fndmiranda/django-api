@@ -11,8 +11,8 @@ from accounts import views as accounts
 from users import views as users
 
 schema_view = get_schema_view(
-    title=settings.API_TITLE,
-    description=settings.API_DESCRIPTION,
+    title=settings.APP_NAME,
+    description=settings.APP_DESCRIPTION,
     renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer]
 )
 
@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^', include(router.urls)),
     url(r'^schema/$', schema_view),
-    url(r'^docs/', include_docs_urls(title=settings.API_TITLE, description=settings.API_DESCRIPTION)),
+    url(r'^docs/', include_docs_urls(title=settings.APP_NAME, description=settings.APP_DESCRIPTION)),
 ]
