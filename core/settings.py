@@ -80,7 +80,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
-ROOT_URLCONF = 'api.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -98,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'api.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
