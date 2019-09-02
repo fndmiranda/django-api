@@ -27,27 +27,22 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'k*44)smhkr39z-@@x_w*%9^6e!$nzp-bzl7f5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['localhost'])
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
 
 AUTH_USER_MODEL = 'users.User'
 
 
-# API detail
+# App detail
 
-API_TITLE = os.environ.get('API_TITLE', 'Django Rest API')
+APP_NAME = os.environ.get('APP_NAME', 'Django Rest Api')
 
-API_DESCRIPTION = os.environ.get('API_DESCRIPTION', 'The Django Rest API skeleton application')
+APP_DESCRIPTION = os.environ.get('APP_DESCRIPTION', 'The Django Rest Api skeleton application')
 
 # API password reset token expiry time in hours
 API_PASSWORD_RESET_TOKEN_EXPIRY = os.environ.get('API_PASSWORD_RESET_TOKEN_EXPIRY', 24)
 
 # Base URL from default web front (default: localhost:3000)
 WEB_URL = os.environ.get('WEB_URL', 'localhost:3000')
-
-
-# Admin
-admin.site.site_header = API_TITLE
-admin.site.site_title = API_DESCRIPTION
 
 
 # Application definition
@@ -85,7 +80,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
-ROOT_URLCONF = 'api.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -103,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'api.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -188,4 +183,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.TemplateHTMLRenderer'
     ),
+    # Parser classes priority-wise for Swagger
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
