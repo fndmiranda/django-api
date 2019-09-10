@@ -1,0 +1,6 @@
+#, python-format
+msgid "%s administration"
+msgstr "%s administração"
+
+msgid "dddd"
+msgstr "oooo"
