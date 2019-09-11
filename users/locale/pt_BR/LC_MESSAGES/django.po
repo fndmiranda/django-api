@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-10 23:10-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: users/admin.py:45
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: users/admin.py:48 users/admin.py:106
+msgid "Password"
+msgstr ""
+
+#: users/admin.py:54
+msgid "Password confirmation"
+msgstr ""
+
+#: users/admin.py:57
+msgid "Enter the same password as before, for verification."
+msgstr ""
+
+#: users/admin.py:108
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"../password\">this "
+"form</a>."
+msgstr ""
+
+#: users/admin.py:133 users/admin.py:138
+msgid "Personal info"
+msgstr ""
+
+#: users/admin.py:134 users/admin.py:139
+msgid "Permissions"
+msgstr ""
+
+#: users/models.py:44
+msgid "email address"
+msgstr ""
+
+#: users/models.py:45
+msgid "first name"
+msgstr ""
+
+#: users/models.py:46
+msgid "last name"
+msgstr ""
+
+#: users/models.py:51
+msgid "language"
+msgstr ""
+
+#: users/models.py:82
+msgid "user"
+msgstr ""
+
+#: users/models.py:83
+msgid "users"
+msgstr ""
+
+#: users/serializers.py:13
+msgid "The first name of the user."
+msgstr ""
+
+#: users/serializers.py:14
+msgid "The last name of the user."
+msgstr ""
+
+#: users/serializers.py:18
+msgid "The email of the user."
+msgstr ""
+
+#: users/serializers.py:24
+msgid "The password of the user."
+msgstr ""
+
+#: users/serializers.py:28
+msgid "If user is active, default is <code>True</code>."
+msgstr ""
+
+#: users/serializers.py:31
+msgid "If user is staff, default is <code>False</code>."
+msgstr ""
+
+#: users/serializers.py:34
+msgid "If user is superuser, default is <code>False</code>."
+msgstr ""
+
+#: users/serializers.py:55
+msgid "The name of the group."
+msgstr ""
