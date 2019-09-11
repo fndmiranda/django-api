@@ -64,7 +64,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'accounts',
     'users',
-    'room',
+    'matter',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
