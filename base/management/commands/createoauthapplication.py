@@ -7,7 +7,7 @@ from user.models import User
 
 
 class Command(BaseCommand):
-    help = 'Create a OAuth2 application on the Authorization server'
+    help = 'Create a OAuth2 application on the Authorization server.'
 
     def add_arguments(self, parser):
         parser.add_argument(

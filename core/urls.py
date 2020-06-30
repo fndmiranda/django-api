@@ -3,9 +3,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls import include
+from rest_framework.decorators import api_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from rest_framework import permissions
+from rest_framework import permissions, status
+from rest_framework.response import Response
 from rest_framework.documentation import include_docs_urls
 
 schema_view = get_schema_view(
@@ -21,7 +23,14 @@ schema_view = get_schema_view(
    permission_classes=(permissions.IsAuthenticated,),
 )
 
+
+@api_view(['GET'])
+def index(request):
+    return Response({'running'}, status=status.HTTP_200_OK)
+
+
 urlpatterns = [
+    url(r'^$', index),
     path('admin/', admin.site.urls),
     url(r'^catalog/', include('catalog.urls', namespace='catalog')),
     url(r'^account/', include('account.urls', namespace='account')),

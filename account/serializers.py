@@ -38,8 +38,8 @@ class AccountSerializer(serializers.ModelSerializer):
         validators=[UniqueValidator(queryset=get_user_model().objects.all())],
     )
     language = serializers.ChoiceField(required=False, choices=settings.LANGUAGES, help_text=mark_safe_lazy(
-        "%s: [%s] %s %s" % (
-            _('	The language of the account, options: '),
+        "%s [%s] %s %s" % (
+            _('The language of the account, options:'),
             ', '.join("{!s}".format(key, val) for (key, val) in settings.LANGUAGES), # noqa
             _('default is'),
             "<code>%s</code>" % settings.LANGUAGE_DEFAULT
