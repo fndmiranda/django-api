@@ -93,7 +93,6 @@ Change `pt_BR` to your locale
 $ make makemessages locale=pt_BR
 ```
 
-
 Execute the following command to compiles .po files to .mo files for use with builtin gettext support:
 
 Change `pt_BR` to your locale
@@ -101,3 +100,18 @@ Change `pt_BR` to your locale
 ```terminal
 $ make compilemessages locale=pt_BR
 ```
+
+# Links
+
+After run `make runserver`
+
+In your browser go to the `http://127.0.0.1:8000/admin/` address to access Django Admin
+
+## Api documentation
+
+* A JSON view of your API specification at `http://127.0.0.1:8000/swagger.json`
+* A YAML view of your API specification at `http://127.0.0.1:8000/swagger.yaml`
+* A swagger-ui view of your API specification at `http://127.0.0.1:8000/swagger/`
+* A built-in view of your API specification at `http://127.0.0.1:8000/docs/`
+* A JS built-in view of your API specification at `http://127.0.0.1:8000/docs/schema.js`
+* A ReDoc view of your API specification at `http://127.0.0.1:8000/redoc/`

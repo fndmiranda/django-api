@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-from django.conf.urls import url
-from django.conf.urls import include
+from django.conf.urls import url, include
 from rest_framework.decorators import api_view
 from drf_yasg.views import get_schema_view
+from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework import permissions, status
 from rest_framework.response import Response
@@ -24,9 +24,10 @@ schema_view = get_schema_view(
 )
 
 
+@swagger_auto_schema(method='get', auto_schema=None)
 @api_view(['GET'])
 def index(request):
-    return Response({'running'}, status=status.HTTP_200_OK)
+    return Response({'{app} - running'.format(app=settings.APP_NAME)}, status=status.HTTP_200_OK)
 
 
 urlpatterns = [
