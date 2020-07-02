@@ -84,6 +84,8 @@ Execute the following command to list outdated packages:
 $ make outdated
 ```
 
+# Translation
+
 Execute the following command to runs over the entire source tree of the current directory and pulls 
 out all strings marked for translation:
 
