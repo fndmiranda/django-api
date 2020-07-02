@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-30 01:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: user/admin.py:17
+msgid "The two password fields don't match."
+msgstr "Os dois campos de senha não coincidem."
+
+#: user/admin.py:20 user/admin.py:78
+msgid "Password"
+msgstr "Senha"
+
+#: user/admin.py:26
+msgid "Password confirmation"
+msgstr "Confirmação da senha"
+
+#: user/admin.py:29
+msgid "Enter the same password as before, for verification."
+msgstr "Digite a mesma senha de antes para verificação."
+
+#: user/admin.py:80
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"../password\">this "
+"form</a>."
+msgstr ""
+"As senhas brutas não são armazenadas; portanto, não há como ver a senha "
+"deste usuário, mas você pode alterar a senha usando <a href=\"../password"
+"\">esse formulário</a>."
+
+#: user/admin.py:105 user/admin.py:110
+msgid "Personal info"
+msgstr "Informação pessoal"
+
+#: user/admin.py:106 user/admin.py:111
+msgid "Permissions"
+msgstr "Permissões"
+
+#: user/apps.py:7 user/models.py:83
+msgid "users"
+msgstr "usuários"
+
+#: user/models.py:45
+msgid "email address"
+msgstr "endereço de e-mail"
+
+#: user/models.py:46
+msgid "name"
+msgstr "nome"
+
+#: user/models.py:51
+msgid "language"
+msgstr "linguagem"
+
+#: user/models.py:82
+msgid "user"
+msgstr "usuário"
+
+#: user/serializers.py:13
+msgid "The name of the user."
+msgstr "O nome do usuário."
+
+#: user/serializers.py:17
+msgid "The email of the user."
+msgstr "O e-mail do usuário."
+
+#: user/serializers.py:23
+msgid "The password of the user."
+msgstr "A senha do usuário."
+
+#: user/serializers.py:27
+msgid "If user is active, default is <code>True</code>."
+msgstr "Se o usuário estiver ativo, o padrão é <code>True</code>."
+
+#: user/serializers.py:30
+msgid "If user is staff, default is <code>False</code>."
+msgstr "Se o usuário faz parte da equipe, o padrão é <code>False</code>."
+
+#: user/serializers.py:33
+msgid "If user is superuser, default is <code>False</code>."
+msgstr "Se o usuário for superusuário, o padrão é <code>False</code>."
+
+#: user/serializers.py:54
+msgid "The name of the group."
+msgstr "O nome do grupo."
