@@ -80,12 +80,13 @@ class CategoryViewSet(ModelViewSet):
         ))
         response = super().update(request, *args, **kwargs)
         logger.info('Response {} a {} with pk: {} status code: {} response: {} user id: {}'.format(
-            Category._meta.verbose_name.title(), action, kwargs['pk'], response.status_code, response.data, request.user.id
+            Category._meta.verbose_name.title(), action, kwargs['pk'],
+            response.status_code, response.data, request.user.id
         ))
         return response
 
     def destroy(self, request, *args, **kwargs):
-        logger.info('Starting destroy a {} with pk: {} user id'.format(
+        logger.info('Starting destroy a {} with pk: {} user id: {}'.format(
             Category._meta.verbose_name.title(), kwargs['pk'], request.user.id)
         )
         response = super().destroy(request, *args, **kwargs)
@@ -189,7 +190,7 @@ class ProductViewSet(ModelViewSet):
         return Response(serializer.data)
 
     def destroy(self, request, *args, **kwargs):
-        logger.info('Starting destroy a {} with pk: {} user id'.format(
+        logger.info('Starting destroy a {} with pk: {} user id: {}'.format(
             Product._meta.verbose_name.title(), kwargs['pk'], request.user.id)
         )
         response = super().destroy(request, *args, **kwargs)

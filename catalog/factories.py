@@ -21,3 +21,14 @@ class ProductFactory(factory.DjangoModelFactory):
 
     class Meta:
         model = Product
+
+    @factory.post_generation
+    def categories(self, create, extracted, **kwargs):
+        if not create:
+            # Simple build, do nothing.
+            return
+
+        if extracted:
+            # A list of members were passed in, use them
+            for category in extracted:
+                self.categories.add(category)

@@ -22,6 +22,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     title = serializers.CharField(required=True, max_length=60, help_text=_('The title of the product.'))
     description = serializers.CharField(required=True, help_text=_('The description of the product.'))
+    brand = serializers.CharField(required=True, help_text=_('The brand of the product.'))
     slug = serializers.SlugField(
         validators=[UniqueValidator(queryset=Category.objects.all())],
         max_length=150,
@@ -30,10 +31,16 @@ class ProductSerializer(serializers.ModelSerializer):
         help_text=_('The slug of the product.')
     )
     categories = CategorySerializer(many=True, read_only=False)
+    is_active = serializers.BooleanField(
+        required=False, allow_null=True, help_text=_('The state of the product.')
+    )
+    ordering = serializers.IntegerField(
+        required=False, allow_null=True, help_text=_('The order of the product.')
+    )
 
     class Meta:
         model = Product
-        fields = ('id', 'title', 'slug', 'description', 'categories')
+        fields = ('id', 'title', 'slug', 'description', 'brand', 'categories', 'is_active', 'ordering')
 
 
 class ProductWriteSerializer(ProductSerializer):
